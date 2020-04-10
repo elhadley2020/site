@@ -1,5 +1,6 @@
 from flask import Flask 
 from flask import request
+from flask import send_file
 
 #declare flask object and route index page
 app = Flask(__name__)
@@ -38,24 +39,28 @@ def index():
     #concatenated pattern for switch
     arch_os_pattern = architecture + " " + operating_system
 
-    #set filepath with switch string pattern
-    switch(arch_os_pattern) {
-        case "x64 linux" : filepath = "/home/ubuntu/payloads/linux_x64"
-            break
-        case "x64 windows" : filepath = "/home/ubuntu/payloads/windows_x64"
-            break
-        case "x64 android": filepath = "/home/ubuntu/payloads/android_x64"
-            break
-        case "x86 linux" : filepath = "/home/ubuntu/payloads/linux_x86"
-            break
-        case "x86 windows" : filepath = "/home/ubuntu/payloads/windows_x86"
-            break
-        case "x86 android" : filepath = "/home/ubuntu/payloads/android_x86"
-            break
-        default:    filepath = ""
-            break
-    }   
+    #variable for filepath to payload
+    filepath = ""
 
+    #set filepath with 
+    if arch_os_pattern == "x64 linux":
+        filepath = "payloads/linux_x64"
+    
+    if arch_os_pattern == "x64 windows":
+        filepath = "payloads/windows_x64"
+    
+    if arch_os_pattern == "x64 android":
+        filepath = "payloads/android_x64"
+    
+    if arch_os_pattern == "x86 linux":
+        filepath = "payloads/linux_x86"
+    
+    if arch_os_pattern == "x86 windows":
+        filepath = "payloads/windows_x86"
+    
+    if arch_os_pattern == "x86 android":
+        filepath = "payloads/android_x86"
+    
     #send set payload
     if filepath == "":
         return "Error"
