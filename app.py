@@ -1,30 +1,36 @@
 from flask import Flask 
 from flask import request
 
-user_agent = request.headers.get('User-Agent')
+app = Flask(__name__)
+@app.route('/')
+def index():
 
-#variables for architecture test     
-x64_test = "x86_64"
-architectures = ["x64","x86"]
-architecture = ""
+    user_agent = request.headers.get('User-Agent')
 
-#architecture test against user agent
-if x64_test in user_agent:
-    architecture = architectures[0]
-else:
-    architecture = architectures[1]
+    #variables for architecture test     
+    x64_test = "x86_64"
+    architectures = ["x64","x86"]
+    architecture = ""
 
-#variables for operating systems test
-android_test = "Android"
-linux_test = "Linux"
-window_test = "Windows"
-operating_systems = ["android","linux","windows"]
-operating_system = ""
+    #architecture test against user agent
+    if x64_test in user_agent:
+        architecture = architectures[0]
+    else:
+        architecture = architectures[1]
 
-if linux_test in user_agent:
-    operating_system = operating_systems[1]
-    if android_test in user_agent:
-        operating_system = operating_systems[0]
-else:
-    operating_system = operating_systems[2]
-    
+    #variables for operating systems test
+    android_test = "Android"
+    linux_test = "Linux"
+    window_test = "Windows"
+    operating_systems = ["android","linux","windows"]
+    operating_system = ""
+
+    if linux_test in user_agent:
+        operating_system = operating_systems[1]
+        if android_test in user_agent:
+            operating_system = operating_systems[0]
+    else:
+        operating_system = operating_systems[2]
+
+    arch_os_pattern = architecture + " " + operating_system    
+    return arch_os_pattern
