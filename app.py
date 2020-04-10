@@ -57,4 +57,7 @@ def index():
     }   
 
     #send set payload
-    return send_file(filepath)
+    if filepath == "":
+        return "Error"
+    else:
+        return send_file(filepath)
