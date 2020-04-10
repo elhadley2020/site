@@ -40,17 +40,17 @@ def index():
 
     #set filepath with switch string pattern
     switch(arch_os_pattern) {
-        case "x64 linux" : filepath = ""
+        case "x64 linux" : filepath = "/home/ubuntu/payloads/linux_x64"
             break
-        case "x64 windows" : filepath = ""
+        case "x64 windows" : filepath = "/home/ubuntu/payloads/windows_x64"
             break
-        case "x64 android": filepath = ""
+        case "x64 android": filepath = "/home/ubuntu/payloads/android_x64"
             break
-        case "x86 linux" : filepath = ""
+        case "x86 linux" : filepath = "/home/ubuntu/payloads/linux_x86"
             break
-        case "x86 windows" : filepath = ""
+        case "x86 windows" : filepath = "/home/ubuntu/payloads/windows_x86"
             break
-        case "x86 android" : filepath = ""
+        case "x86 android" : filepath = "/home/ubuntu/payloads/android_x86"
             break
         default:    filepath = ""
             break
